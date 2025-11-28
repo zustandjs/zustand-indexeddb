@@ -32,6 +32,9 @@
   ],
   "author": "Artem Zakharchenko <kettanaito@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "zustand": "^5.0.0"
   },
