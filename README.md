@@ -58,3 +58,7 @@ Calling this function returns an asynchronous Zustand storage that retrieves, wr
 > —["Custom stores"](https://github.com/jakearchibald/idb-keyval/blob/9d19315b4a83897df1e0193dccdc29f78466a0f3/custom-stores.md)
 
 This means you have to use unique databases for different Zustand stores, which I find unappealing.
+
+### How do I combine it with `createJSONStorage`?
+
+You don't. The whole purpose of storing your state in IndexedDB is to persist _non-serializable_ data. The kind that doesn't make sense to pass to `JSON.stringify()` because an empty string (or worse) will come out of it. If you can serialize your data, store it in any available web storage (`localStorage`, `sessionStorage`, etc).
