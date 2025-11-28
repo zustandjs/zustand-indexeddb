@@ -45,4 +45,16 @@ await userStore.setState(() => ({ name: 'John' }))
 
 Calling this function returns an asynchronous Zustand storage that retrieves, writes, and deletes state in the respective IndexedDB database.
 
-**The `name` option of your `persist()` middleware is used as the row name in the created store.** This allows you to persist multiple different Zustand stores within the same database+store compartment.
+**The `name` option of your `persist()` middleware is used as the row name in the created store.** This allows you to persist multiple different Zustand stores within the same database+store compartment. This also means that each row has its own individual rehydration and migration logic, which is neat.
+
+## FAQ
+
+### Why not `idb-keyval`?
+
+[`idb-keyval`](https://github.com/jakearchibald/idb-keyval) is a great library that simplifies working with IndexedDB. You can use it to implement your own custom storage, but there's one important limitation that `idb-keyval` has that prevented me from adopting that approach:
+
+> _But `createStore` won't let you create multiple stores within the same database. Nor will it let you create a store within an existing database._
+>
+> —["Custom stores"](https://github.com/jakearchibald/idb-keyval/blob/9d19315b4a83897df1e0193dccdc29f78466a0f3/custom-stores.md)
+
+This means you have to use unique databases for different Zustand stores, which I find unappealing.
