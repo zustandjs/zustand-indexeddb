@@ -1,7 +1,7 @@
 {
-  "name": "indexeddb-storage",
-  "version": "0.1.0",
-  "description": "",
+  "name": "zustand-indexeddb",
+  "version": "0.0.0",
+  "description": "Persist Zustand state in IndexedDB.",
   "main": "./build/index.js",
   "scripts": {
     "test": "vitest",
@@ -16,6 +16,9 @@
   ],
   "author": "",
   "license": "MIT",
+  "peerDependencies": {
+    "zustand": "^5.0.0"
+  },
   "devDependencies": {
     "@vitest/browser-playwright": "^4.0.14",
     "playwright": "^1.57.0",
