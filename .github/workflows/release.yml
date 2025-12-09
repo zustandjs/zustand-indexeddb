@@ -40,6 +40,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Install browsers
+        run: pnpm browsers
+
       - name: Tests
         run: pnpm test
 
