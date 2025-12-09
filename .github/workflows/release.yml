@@ -41,7 +41,7 @@ jobs:
         run: pnpm install
 
       - name: Install browsers
-        run: pnpm browsers
+        run: pnpm browsers --only-shell
 
       - name: Tests
         run: pnpm test
